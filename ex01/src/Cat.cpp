@@ -7,7 +7,7 @@
 #include <string>
 
 Cat::Cat() {
-  this->brain = new Brain();
+  this->setBrain(new Brain());
   this->setType("Cat");
   std::cout << "Cat constructor called." << std::endl;
 }
@@ -18,17 +18,30 @@ Cat::Cat(const Cat& other) {
 }
 
 Cat& Cat::operator=(const Cat& other) {
-  this->setType(other.getType());
+  if (this != &other) {
+    delete this->getBrain();
+    this->setBrain(new Brain(*other.getBrain())); // deep copy
+    //this->setBrain(other.getBrain()); // shallow copy
+    this->setType(other.getType());
+  }
   std::cout << "Cat Assignment operator called." << std::endl;
   return *this;
 }
 
 Cat::~Cat() {
-  delete this->brain;
-  this->brain = NULL;
+  delete this->getBrain();
+  this->setBrain(NULL);
   std::cout << "Cat destructor called." << std::endl;
 }
 
 void Cat::makeSound() const {
   std::cout << "Meow!" << std::endl;
+}
+
+void Cat::setBrain(Brain* brain) {
+  this->brain_ = brain;
+}
+
+Brain* Cat::getBrain() const {
+  return this->brain_;
 }

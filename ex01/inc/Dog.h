@@ -13,8 +13,10 @@ class Dog : public Animal {
     Dog& operator=(const Dog& other);
     ~Dog();
 
-    void makeSound() const;
+    void   makeSound() const;
+    void   setBrain(Brain* brain);
+    Brain* getBrain() const;
 
   private:
-    Brain* brain;
+    Brain* brain_;
 };

@@ -16,8 +16,10 @@ Brain::Brain(const Brain& other) {
 }
 
 Brain& Brain::operator=(const Brain& other) {
-  for (int i = 0; i < 100; ++i) {
-    this->setIdea(other.getIdea(i), i);
+  if (this != &other) {
+    for (int i = 0; i < 100; ++i) {
+      this->setIdea(other.getIdea(i), i);
+    }
   }
   std::cout << "Brain Assignment operator called" << std::endl;
   return *this;
@@ -37,5 +39,5 @@ const std::string Brain::getIdea(int index) const {
   if (0 <= index && index < 100) {
     return this->ideas_[index];
   }
-  return "";
+  return "Invalid index";
 }
