@@ -13,17 +13,21 @@ Dog::Dog() {
 }
 
 Dog::Dog(const Dog& other) {
+  this->setBrain(NULL);
   *this = other;
   std::cout << "Dog copy constructor called." << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& other) {
-  if (this != &other) {
-    delete this->getBrain();
-    this->setBrain(new Brain(*other.getBrain())); // deep copy
-    //this->setBrain(other.getBrain()); // shallow copy
-    this->setType(other.getType());
+  if (this == &other) {
+    return *this;
   }
+  if (this->getBrain()) {
+    delete this->getBrain();
+  }
+  this->setBrain(new Brain(*other.getBrain())); // deep copy
+  //this->setBrain(other.getBrain()); // shallow copy
+  this->setType(other.getType());
   std::cout << "Dog Assignment operator called." << std::endl;
   return *this;
 }
