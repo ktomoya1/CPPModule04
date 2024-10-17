@@ -2,7 +2,7 @@ PROGRAM := ignite_world
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow
-DEBUGFLAGS = -g -fsanitize=address
+DEBUGFLAGS = -g
 
 INCDIR = inc
 SRCDIR = src
@@ -33,6 +33,9 @@ CXXFLAGS += $(DEBUGFLAGS)
 endif
 
 debug: re
+
+valgrind: $(PROGRAM)
+	valgrind --leak-check=full ./$(PROGRAM)
 
 fmt:
 	$(if $(SRC), clang-format --style=Google -i $(SRC))
