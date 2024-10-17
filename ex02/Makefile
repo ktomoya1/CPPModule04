@@ -1,4 +1,4 @@
-PROGRAM := ignite_world
+PROGRAM := abstract_class
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow
