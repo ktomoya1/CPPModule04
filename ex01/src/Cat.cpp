@@ -9,12 +9,12 @@
 Cat::Cat() {
   this->brain = new Brain();
   this->setType("Cat");
-  std::cout << "Cat constructor called" << std::endl;
+  std::cout << "Cat constructor called." << std::endl;
 }
 
 Cat::Cat(const Cat& other) {
   *this = other;
-  std::cout << "Cat copy constructor called" << std::endl;
+  std::cout << "Cat copy constructor called." << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& other) {

@@ -9,12 +9,12 @@
 Dog::Dog() {
   this->brain = new Brain();
   this->setType("Dog");
-  std::cout << "Dog constructor called" << std::endl;
+  std::cout << "Dog constructor called." << std::endl;
 }
 
 Dog::Dog(const Dog& other) {
   *this = other;
-  std::cout << "Dog copy constructor called" << std::endl;
+  std::cout << "Dog copy constructor called." << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& other) {
