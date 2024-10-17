@@ -1,18 +1,20 @@
 #include "Cat.h"
 
 #include "Animal.h"
+#include "Brain.h"
 
 #include <iostream>
 #include <string>
 
 Cat::Cat() {
+  this->brain = new Brain();
   this->setType("Cat");
-  std::cout << "Cat constructor called." << std::endl;
+  std::cout << "Cat constructor called" << std::endl;
 }
 
 Cat::Cat(const Cat& other) {
   *this = other;
-  std::cout << "Cat copy constructor called." << std::endl;
+  std::cout << "Cat copy constructor called" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& other) {
@@ -22,6 +24,8 @@ Cat& Cat::operator=(const Cat& other) {
 }
 
 Cat::~Cat() {
+  delete this->brain;
+  this->brain = NULL;
   std::cout << "Cat destructor called." << std::endl;
 }
 

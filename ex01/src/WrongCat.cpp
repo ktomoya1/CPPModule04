@@ -7,12 +7,12 @@
 
 WrongCat::WrongCat() {
   this->setType("WrongCat");
-  std::cout << "WrongCat constructor called." << std::endl;
+  std::cout << "WrongCat constructor called" << std::endl;
 }
 
 WrongCat::WrongCat(const WrongCat& other) {
   *this = other;
-  std::cout << "WrongCat copy constructor called." << std::endl;
+  std::cout << "WrongCat copy constructor called" << std::endl;
 }
 
 WrongCat& WrongCat::operator=(const WrongCat& other) {
